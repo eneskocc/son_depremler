@@ -1,0 +1,1 @@
+# son_depremler
