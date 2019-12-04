@@ -1,33 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://api-maps.yandex.ru/2.1/?apikey=Your API key&lang=en_US" type="text/javascript">
-</script>
-<style>
-.h-20{
-    height: 20vh !important;
-}
-.w-100{
-    width: 101% !important;
-}
-</style>    
-<title>son depremler</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=Your API key&lang=en_US" type="text/javascript"></script>
+    <link rel="stylesheet" href="./swiper-master/package/css/swiper.min.css">
+    
+    <script src="index.js"></script>
+    <style>
+        .h-20 {
+            height: 20vh !important;
+        }
+
+        .w-100 {
+            width: 101% !important;
+        }
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 90%;
+            height: 20vh;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            height: 15vh;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
+    <title>son depremler</title>
 
 </head>
+
 <body>
     <div id="a" class="row justify-items-center w-100">
         <h2 class="col-md-12 text-center pt-3 pb-3 text-danger">Son Depremler</h2>
     </div>
-   <div class="justify-items-center">
-    <div id="map" style="width: 101%; height: 80vh"></div>
-   </div> 
-    <script src="index.js"></script>
+    <div class="swiper-container mb-4" >
+        <div class="swiper-wrapper" id="pano" >
+            <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
+                <p class="text-danger">yükleniyor...</p>
+            </div>
+            <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
+                <p class="text-danger">yükleniyor...</p>
+            </div>
+            <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
+                <p class="text-danger">yükleniyor...</p>
+            </div>
+        </div>
+        <div class="swiper-pagination mt-5"></div>
+        <div class="swiper-button-next text-danger"></div>
+        <div class="swiper-button-prev text-danger"></div>
+    </div>
+    <script src="./swiper-master/package/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 4,
+            loop: false,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })
+    </script>
+    <div class="justify-items-center">
+        <div id="map" class="rounded" style="width: 80%; height: 65vh;margin-left:10%;"></div>
+    </div>
+
+   
 </body>
+
 </html>
