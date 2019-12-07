@@ -1,5 +1,5 @@
 ymaps.ready(init);
-let pano = "";
+let main = "";
 function init() {
     var myMap = new ymaps.Map("map", {
         center: [39.43, 35.30],
@@ -11,14 +11,34 @@ function init() {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
+            let div="";
+            let i=0;
             myObj.result.map(deprem => {
-                pano += `
-                <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
-                    <p class="text-danger">${deprem.title}</p>
-                    <p>${deprem.mag} büyüklüğnde</p>
-                    <p>${deprem.date}</p>
+                i++;
+                div+=`
+                <div class="text-center w-30 border border-danger rounded ml-3 f-left p-3">
+                    <h6>${deprem.title}</h6>
+                    <p>${deprem.date}</p
+                    <p>Büyüklüğü ${deprem.mag}</p>
+                    <p>Derinliği ${deprem.depth}</p>
                 </div>
                 `;
+                if(i%3==0){
+                    let carsual="";
+                    if(i===3){
+                        carsual=`
+                        <div class="carousel-item ml-4 active">
+                        ${div}
+                        </div>`;
+                    }else{
+                        carsual=`
+                        <div class="carousel-item ml-4">
+                        ${div}
+                        </div>`;
+                    }
+                    main+=carsual;
+                    div="";
+                }
                 myMap.geoObjects
                     .add(new ymaps.Placemark([deprem.lat, deprem.lng], {
                         balloonContent: deprem.title + `<br>` + deprem.mag + " büyüklüğünde " + `<br>` + deprem.date + `<br>` + deprem.depth + " km derinliğinde"
@@ -27,9 +47,9 @@ function init() {
                         preset: 'islands#circleDotIcon',
                         iconColor: 'red'
                     }))
-            });
-            document.getElementById("pano").innerHTML = pano;
-         
+            });  
+            console.log(main);
+            document.getElementById("main").innerHTML=main;
         }
 
     };
@@ -38,6 +58,3 @@ function init() {
     xmlhttp.send();
 
 }
-
-
-
