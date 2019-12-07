@@ -3,7 +3,6 @@
 }
 
 .w-100 {
-    max-width: 160vh;
     width: 101% !important;
 }
 
@@ -26,10 +25,10 @@ body {
 
 }
 .w-93{
-   width: 93%;
+   width: 93% !important;
 }
 .w-69{
-    width: 60%;
+    width: 69%;
  }
 .f-left{
    float: left;
@@ -37,5 +36,4 @@ body {
 .map{
    width: 130vh;
    height: 65vh;
-    margin-left: 20vh;
 }
