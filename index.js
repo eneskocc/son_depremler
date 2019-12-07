@@ -16,7 +16,7 @@ function init() {
             myObj.result.map(deprem => {
                 i++;
                 div+=`
-                <div class="text-center w-30 border border-danger rounded ml-3 f-left p-3">
+                <div class="text-center w-30 border border-danger rounded f-left p-2 ml-4">
                     <h6>${deprem.title}</h6>
                     <p>${deprem.date}</p
                     <p>Büyüklüğü ${deprem.mag}</p>
@@ -27,12 +27,12 @@ function init() {
                     let carsual="";
                     if(i===3){
                         carsual=`
-                        <div class="carousel-item ml-4 active">
+                        <div class="carousel-item active">
                         ${div}
                         </div>`;
                     }else{
                         carsual=`
-                        <div class="carousel-item ml-4">
+                        <div class="carousel-item">
                         ${div}
                         </div>`;
                     }
@@ -48,7 +48,6 @@ function init() {
                         iconColor: 'red'
                     }))
             });  
-            console.log(main);
             document.getElementById("main").innerHTML=main;
         }
 
