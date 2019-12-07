@@ -1,0 +1,41 @@
+.h-20 {
+    height: 20vh !important;
+}
+
+.w-100 {
+    max-width: 160vh;
+    width: 101% !important;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.w-30{
+   width: 30%;
+
+}
+.w-93{
+   width: 93%;
+}
+.w-69{
+    width: 60%;
+ }
+.f-left{
+   float: left;
+}
+.map{
+   width: 130vh;
+   height: 65vh;
+    margin-left: 20vh;
+}
