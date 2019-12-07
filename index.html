@@ -18,55 +18,9 @@
         crossorigin="anonymous"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=Your API key&lang=en_US" type="text/javascript"></script>
     <link rel="stylesheet" href="./swiper-master/package/css/swiper.min.css">
-    
+
     <script src="index.js"></script>
-    <style>
-        .h-20 {
-            height: 20vh !important;
-        }
-
-        .w-100 {
-            width: 101% !important;
-        }
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper-container {
-            width: 90%;
-            height: 20vh;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            height: 15vh;
-            font-size: 18px;
-            background: #fff;
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>son depremler</title>
 
 </head>
@@ -75,45 +29,25 @@
     <div id="a" class="row justify-items-center w-100">
         <h2 class="col-md-12 text-center pt-3 pb-3 text-danger">Son Depremler</h2>
     </div>
-    <div class="swiper-container mb-4" >
-        <div class="swiper-wrapper" id="pano" >
-            <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
-                <p class="text-danger">yükleniyor...</p>
-            </div>
-            <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
-                <p class="text-danger">yükleniyor...</p>
-            </div>
-            <div class="swiper-slide border border-danger mt-3 text-center p-2 rounded">
-                <p class="text-danger">yükleniyor...</p>
-            </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner justify-items-center" id="main">
+
         </div>
-        <div class="swiper-pagination mt-5"></div>
-        <div class="swiper-button-next text-danger"></div>
-        <div class="swiper-button-prev text-danger"></div>
     </div>
-    <script src="./swiper-master/package/js/swiper.min.js"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            slidesPerGroup: 4,
-            loop: false,
-            loopFillGroupWithBlank: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        })
-    </script>
-    <div class="justify-items-center">
-        <div id="map" class="rounded" style="width: 80%; height: 65vh;margin-left:10%;"></div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+    <div class="justify-content-center w-69 mt-4">
+        <div id="map" class="rounded map"></div>
     </div>
 
-   
+
 </body>
 
 </html>
