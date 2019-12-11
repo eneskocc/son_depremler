@@ -19,9 +19,9 @@ function init() {
                 div += `
                 <div class="text-center w-30 border border-danger rounded f-left p-2 ml-4">
                     <h6>${deprem.title}</h6>
-                    <p>${deprem.date}</p
-                    <p>Büyüklüğü ${deprem.mag}</p>
-                    <p>Derinliği ${deprem.depth}</p>
+                    <p>${deprem.date}<br>
+                    Büyüklüğü ${deprem.mag}<br>
+                    Derinliği ${deprem.depth}</p>
                 </div>
                 `;
                 if (i % 3 == 0) {
