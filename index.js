@@ -42,11 +42,17 @@ function init() {
                 }
                 let color = '';
                 if (Number(deprem.mag) < 2) {
-                    color = 'yellow';
+                    color = '#FFFF66';
                 } else if (Number(deprem.mag) < 3) {
-                    color = 'orange';
-                } else {
+                    color = '#FFCC33';
+                } else if (Number(deprem.mag) < 4) {
+                    color = '#FF9900';
+                } else if (Number(deprem.mag) < 5) {
+                    color = '#FF6600';
+                } else if (Number(deprem.mag) < 6) {
                     color = 'red';
+                } else {
+                    color = 'black';
                 }
 
                 myMap.geoObjects

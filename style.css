@@ -20,20 +20,55 @@ body {
     padding: 0;
 }
 
-.w-30{
-   width: 30%;
+.w-30 {
+    width: 30%;
+}
 
+.w-93 {
+    width: 93% !important;
 }
-.w-93{
-   width: 93% !important;
-}
-.w-69{
+
+.w-69 {
     width: 69%;
- }
-.f-left{
-   float: left;
 }
-.map{
-   width: 130vh;
-   height: 65vh;
+
+.f-left {
+    float: left;
+}
+
+.map {
+    width: 130vh;
+    height: 65vh;
+}
+
+.w-130 {
+    width: 127vh;
+}
+
+.h-5 {
+    height: 5vh;
+}
+
+.sari {
+    background-color: #FFFF66;
+}
+
+.acikturuncu {
+    background-color: #FFCC33;
+}
+
+.normalturuncu {
+    background-color: #FF9900;
+}
+
+.turuncu {
+    background-color: #FF6600;
+}
+
+.kirmizi {
+    background-color: red;
+}
+
+.siyah {
+    background-color: black;
 }
