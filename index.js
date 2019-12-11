@@ -1,5 +1,6 @@
 ymaps.ready(init);
 let main = "";
+
 function init() {
     var myMap = new ymaps.Map("map", {
         center: [39.43, 35.30],
@@ -8,14 +9,14 @@ function init() {
         searchControlProvider: 'yandex#search'
     });
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-            let div="";
-            let i=0;
+            let div = "";
+            let i = 0;
             myObj.result.map(deprem => {
                 i++;
-                div+=`
+                div += `
                 <div class="text-center w-30 border border-danger rounded f-left p-2 ml-4">
                     <h6>${deprem.title}</h6>
                     <p>${deprem.date}</p
@@ -23,32 +24,41 @@ function init() {
                     <p>Derinliği ${deprem.depth}</p>
                 </div>
                 `;
-                if(i%3==0){
-                    let carsual="";
-                    if(i===3){
-                        carsual=`
+                if (i % 3 == 0) {
+                    let carsual = "";
+                    if (i === 3) {
+                        carsual = `
                         <div class="carousel-item active">
                         ${div}
                         </div>`;
-                    }else{
-                        carsual=`
+                    } else {
+                        carsual = `
                         <div class="carousel-item">
                         ${div}
                         </div>`;
                     }
-                    main+=carsual;
-                    div="";
+                    main += carsual;
+                    div = "";
                 }
+                let color = '';
+                if (Number(deprem.mag) < 2) {
+                    color = 'yellow';
+                } else if (Number(deprem.mag) < 3) {
+                    color = 'orange';
+                } else {
+                    color = 'red';
+                }
+
                 myMap.geoObjects
                     .add(new ymaps.Placemark([deprem.lat, deprem.lng], {
                         balloonContent: deprem.title + `<br>` + deprem.mag + " büyüklüğünde " + `<br>` + deprem.date + `<br>` + deprem.depth + " km derinliğinde"
 
                     }, {
                         preset: 'islands#circleDotIcon',
-                        iconColor: 'red'
+                        iconColor: color
                     }))
-            });  
-            document.getElementById("main").innerHTML=main;
+            });
+            document.getElementById("main").innerHTML = main;
         }
 
     };
