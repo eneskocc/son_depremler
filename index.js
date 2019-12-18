@@ -1,6 +1,8 @@
 ymaps.ready(init);
 let main = "";
-
+let topLat=0;
+let topLng=0;
+let sayac=0;
 function init() {
     var myMap = new ymaps.Map("map", {
         center: [39.43, 35.30],
@@ -14,6 +16,7 @@ function init() {
             var myObj = JSON.parse(this.responseText);
             let div = "";
             let i = 0;
+           
             myObj.result.map(deprem => {
                 i++;
                 div += `
@@ -54,7 +57,9 @@ function init() {
                 } else {
                     color = 'black';
                 }
-
+                sayac++;
+                topLat+=deprem.lat;
+                topLng+=deprem.lng;
                 myMap.geoObjects
                     .add(new ymaps.Placemark([deprem.lat, deprem.lng], {
                         balloonContent: deprem.title + `<br>` + deprem.mag + " büyüklüğünde " + `<br>` + deprem.date + `<br>` + deprem.depth + " km derinliğinde"
@@ -64,6 +69,20 @@ function init() {
                         iconColor: color
                     }))
             });
+            var myCircle = new ymaps.Circle([
+                [(topLat/sayac), (topLng/sayac)],
+                100000
+            ], {
+                balloonContent: "Radius of the circle: 10 km",
+                hintContent: "Move me"
+            }, {
+                draggable: true,
+                fillColor: "#DB709377",
+                strokeColor: "#990066",
+                strokeOpacity: 0.6,
+                strokeWidth: 10
+            });
+            myMap.geoObjects.add(myCircle);
             document.getElementById("main").innerHTML = main;
         }
 
