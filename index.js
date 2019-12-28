@@ -69,20 +69,7 @@ function init() {
                         iconColor: color
                     }))
             });
-            var myCircle = new ymaps.Circle([
-                [(topLat/sayac), (topLng/sayac)],
-                100000
-            ], {
-                balloonContent: "Radius of the circle: 10 km",
-                hintContent: "Move me"
-            }, {
-                draggable: true,
-                fillColor: "#DB709377",
-                strokeColor: "#990066",
-                strokeOpacity: 0.6,
-                strokeWidth: 10
-            });
-            myMap.geoObjects.add(myCircle);
+   
             document.getElementById("main").innerHTML = main;
         }
 
